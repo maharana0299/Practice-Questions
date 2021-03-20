@@ -1,11 +1,14 @@
 package BinaryTree;
 
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class bt {
     
     public static void main(String[] args) {
-
+        
         Integer[] arr = {50,25,12,null,null,37,30,null,null,null,75,62,null,70,null,null,87,null,null};
         
         Node root = constructBT(arr);
@@ -90,7 +93,7 @@ public class bt {
                     top.node.right = null;
                 }
             } else { 
-                Pair p = st.pop();
+                st.pop();
             }
             top.state++;
         }
@@ -208,6 +211,44 @@ public class bt {
                }
               
            }
+    }
+
+    public static void pathToLeafFromRoot(Node node, String path, int sum, int lo, int hi){
+      
+        if (node == null) {
+            return ;
+        }
+        
+        sum += node.data;
+        path += node.data + " ";
+        pathToLeafFromRoot(node.left,path,sum,lo,hi);
+        pathToLeafFromRoot(node.right,path,sum,lo,hi);
+        
+        if (sum > lo && sum < hi && node.right == null && node.left == null) {
+            System.out.println(path);
+            return;
+        }
+    }
+
+    /**
+     * Ver importent questions
+     * @param node
+     * @return
+     */
+    public static Node createLeftCloneTree(Node node){
+    
+        if (node == null) 
+            return null;
+        
+        createLeftCloneTree(node.left);
+        createLeftCloneTree(node.right);
+        
+        Node t = node.left;
+        
+        node.left = new Node(node.data, null, null);
+        node.left.left = t;
+        
+        return node;
     }
 }
 
