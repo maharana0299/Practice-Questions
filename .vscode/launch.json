@@ -9,6 +9,13 @@
             "name": "Launch bt",
             "request": "launch",
             "mainClass": "bt",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
+            "name": "Launch bt",
+            "request": "launch",
+            "mainClass": "bt",
             "projectName": "Pepcoding_dcbf75e9"
         },
         {
