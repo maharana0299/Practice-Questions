@@ -357,6 +357,39 @@ class Pair {
     return mp;
   }
 
+  public static BPair findLargestBSTBPair(Node node){
+      
+    if (node == null) {
+        BPair p = new BPair();
+        p.isBST = true;
+        p.min = Integer.MAX_VALUE;
+        p.max = Integer.MIN_VALUE;
+        return p;
+    }
+    BPair b1 = findLargestBSTBPair(node.left);
+    BPair b2 = findLargestBSTBPair(node.right);
+    
+    BPair mp = new BPair();
+    
+    mp.isBST = b1.isBST && b2.isBST 
+                && (node.data >= b1.max) 
+                && (node.data <= b2.min) ;
+                
+    mp.min = Math.min(node.data, Math.min(b1.min,b2.min));
+    mp.max = Math.max(node.data, Math.max(b1.max,b2.max));
+    
+    if (mp.isBST){
+        mp.maxNode = node;
+        mp.maxBSTSize = b1.maxBSTSize + b2.maxBSTSize  +1; 
+    } else if (b1.maxBSTSize > b2.maxBSTSize) {
+        mp.maxNode = b1.maxNode;
+        mp.maxBSTSize = b1.maxBSTSize;
+    } else {
+        mp.maxNode = b2.maxNode;
+        mp.maxBSTSize = b2.maxBSTSize;
+    }
+    return mp;
+  }
 }
 
 class DiaPair {
@@ -387,6 +420,10 @@ class BPair{
     boolean isBST;
     int max;
     int min;
+
+    //only for bst max question
+    Node maxNode;
+    int naxBSTSize;
 }
 
 
