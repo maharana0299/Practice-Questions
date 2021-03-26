@@ -1,7 +1,9 @@
+package BinaryTree;
+
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class sumMaxMinHT {
   public static class Node {
     int data;
     Node left;

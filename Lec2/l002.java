@@ -1,3 +1,5 @@
+package Lec2;
+
 import java.util.*;
 
 public class l002{

@@ -2,6 +2,7 @@ package BinaryTree;
 
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -479,7 +480,7 @@ class BPair{
 
     //only for bst max question
     Node maxNode;
-    int naxBSTSize;
+    int maxBSTSize;
 }
 
 
