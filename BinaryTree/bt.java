@@ -304,7 +304,9 @@ class Pair {
         this.node = node;
         this.state = state;
     }
+}
 
+class BST {
     public static Node removeLeaves(Node node) {
         if (node == null) {
             return null;
@@ -390,6 +392,60 @@ class Pair {
     }
     return mp;
   }
+
+  public Node modifyForGreatestSumRoot(Node node)
+    {
+        Node root = node;
+        Pair rtp = new Pair(root, 2);
+    
+        Stack<Pair> st = new Stack<>();
+        st.push(rtp);
+        int sum = 0;
+        while (st.size() > 0) {
+          Pair top = st.peek();
+          if (top.state == 0) {
+            st.pop();
+           if (top.node.left != null) {
+               Pair p = new Pair(top.node.left,2);
+               st.push(p);
+           }
+            
+          } else if (top.state == 2) {
+             
+              if (top.node.right != null) {
+                Pair p = new Pair(top.node.right,2);
+                st.push(p);
+              } 
+              top.state--;
+          } else if (top.state == 1) {
+            
+            sum += top.node.data;
+            top.node.data = sum;
+            
+            top.state--;
+          }
+        }
+        
+        return root;
+    }
+
+    public static void pir(Node node, int d1, int d2) {
+    
+        if (node == null){
+            return;
+        }
+        if (d1 <= node.data && d2 >= node.data){
+            
+            pir(node.left,d1,d2);
+            System.out.println(node.data);
+            pir(node.right,d1,d2);
+        } else if (d1 > node.data ) {
+            pir(node.right,d1,d2);
+        } else {
+            pir(node.left,d1,d2);
+        }
+      }
+
 }
 
 class DiaPair {
