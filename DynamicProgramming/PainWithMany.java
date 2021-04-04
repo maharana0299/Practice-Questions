@@ -2,7 +2,6 @@ package DynamicProgramming;
 
 import java.util.Scanner;
 
-import jdk.vm.ci.meta.Assumptions.LeafType;
 
 /**
  * PainWithMany
@@ -26,6 +25,8 @@ public class PainWithMany {
         int minCost = colorWithMin(arr,n,k);
 
         System.out.println(minCost);
+
+        sc.close();
     }
 
     private static int colorWithMin(int[][] arr, int n, int k) {
