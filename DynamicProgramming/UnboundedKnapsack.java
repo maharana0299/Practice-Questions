@@ -25,7 +25,6 @@ public class UnboundedKnapsack{
 
         int max = unboundedKnapsack(W,val,wt);
         System.out.println(max);
-
         sc.close();
     }
 
