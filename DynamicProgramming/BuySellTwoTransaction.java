@@ -19,6 +19,7 @@ public class BuySellTwoTransaction {
 
         int max = buySellTwoStock(arr);
         System.out.println(max);
+        sc.close();
     }
 
     private static int buySellTwoStock(int[] arr) {

@@ -1,14 +1,12 @@
 package DynamicProgramming;
 
+import java.util.Scanner;
+
 /**
  * BuyAndSellInfinitTransactionsCoolDown
  */
 public class BuyAndSellInfinitTransactionsCoolDown {
 
-    import java.io.*;
-import java.util.*;
-
-public class Main {
 
     public static void main(String[] args) throws Exception {
         Scanner sc = new Scanner(System.in);
@@ -21,6 +19,8 @@ public class Main {
         
         int pro = findBuySell(arr,n);
         System.out.println(pro);
+
+        sc.close();
     }
     
     public static int findBuySell(int[] arr, int n){
@@ -52,5 +52,4 @@ public class Main {
         return ossp;
     }
 
-}
 }

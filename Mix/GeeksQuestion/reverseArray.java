@@ -1,4 +1,4 @@
-package GeeksQuestion;
+package Mix.GeeksQuestion;
 
 public class reverseArray {
     public static void main(String[] args) {

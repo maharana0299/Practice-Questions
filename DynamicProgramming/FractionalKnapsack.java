@@ -1,9 +1,6 @@
 package DynamicProgramming;
 
-import java.lang.reflect.Array;
-import java.security.DrbgParameters.Capability;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.Scanner;
 
@@ -29,6 +26,8 @@ public class FractionalKnapsack{
 
         double max = fractionalKnapsack(cap,values);
         System.out.println(max);
+
+        sc.close();
     }
 
     private static double fractionalKnapsack(int cap, Fract[] values) {

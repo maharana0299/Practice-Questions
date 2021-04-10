@@ -14,6 +14,8 @@ public class TilingWithMxN {
         int m = sc.nextInt();
 
         System.out.println(findTilingWays(n,m));
+
+        sc.close();
     }
 
     private static Integer findTilingWays(int n, int m) {

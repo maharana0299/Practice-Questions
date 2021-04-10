@@ -1,4 +1,4 @@
-package RandomPractice;
+package Mix.RandomPractice;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -21,6 +21,7 @@ public class BuySellKTransaction {
 
         int ways = findMaxProfit(arr,n,k);
         System.out.println(ways);
+        sc.close();
     }
 
     public static int findMaxProfitNaive(int[] arr, int n, int k) {

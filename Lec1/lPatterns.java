@@ -1,3 +1,5 @@
+package Lec1;
+
 import java.util.Scanner;
 
 class lPatterns {

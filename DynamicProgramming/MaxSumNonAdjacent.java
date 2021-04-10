@@ -16,6 +16,7 @@ public class MaxSumNonAdjacent{
 
         int max = calculateMaxSumNonAdj(nums);
         System.out.println(max);
+        sc.close();
     }
 
     private static int calculateMaxSumNonAdj(int[] nums) {

@@ -17,6 +17,7 @@ public class CoinRepCom {
         int com = findComb(coinCount,amt);
         
         System.out.println(com);
+        sc.close();
     }
     
     public static int findComb(int[] nums, int tar) {

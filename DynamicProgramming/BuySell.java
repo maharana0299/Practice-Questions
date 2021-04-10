@@ -18,6 +18,7 @@ public class BuySell {
         }
 
         System.out.println(findWays(arr,n));
+        sc.close();
     }
 
     private static int findWays(int[] arr, int n) {

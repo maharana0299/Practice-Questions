@@ -1,4 +1,4 @@
-package GeeksQuestion;
+package Mix.GeeksQuestion;
 
 public class MaxAndMin {
     public static void main(String[] args) {

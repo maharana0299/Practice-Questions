@@ -2,8 +2,6 @@ package DynamicProgramming;
 
 import java.util.Scanner;
 
-import javax.swing.text.DefaultStyledDocument.ElementSpec;
-
 /**
  * BuySellWithCost
  */
@@ -21,6 +19,7 @@ public class BuySellWithCost {
         
         int profit = calculateProfitWithTransaction(arr,n,tc);
         System.out.println(profit);
+        sc.close();
     }
 
     private static int calculateProfitWithTransaction(int[] arr, int n, int tc) {
@@ -48,7 +47,7 @@ public class BuySellWithCost {
             obsp = nbsp;
             ossp = nssp;
         }
-        return nssp;
+        return ossp;
     }
 
 }

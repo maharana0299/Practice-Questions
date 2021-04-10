@@ -17,6 +17,8 @@ public class MazeSolveMinDist {
         
         int minCost = calculateMinCostMaze(arr);
         System.out.println(minCost);
+
+        sc.close();
     }
     
     public static int calculateMinCostMaze(int[][] cost) {

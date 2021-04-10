@@ -16,6 +16,7 @@ public class NKParition {
         long ways = findWays(n,k);
         
         System.out.println(ways);
+        sc.close();
     }
     
     public static long findWays(int n, int k){
