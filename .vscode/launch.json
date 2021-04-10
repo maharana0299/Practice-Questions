@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Attach",
+            "request": "attach",
+            "hostName": "localhost",
+            "port": "<debug port of the debuggee>"
+        },
+    {
+        "type": "java",
+        "name": "Attach",
+        "request": "attach",
+        "hostName": "localhost",
+        "port": "<debug port of the debuggee>"
+    },
+        {
+            "type": "java",
             "name": "Launch a",
             "request": "launch",
             "mainClass": "a",
