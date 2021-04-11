@@ -1,3 +1,5 @@
+package Pep.GettingStarted;
+
 import java.util.Scanner;
 
 /**
@@ -27,5 +29,7 @@ public class gcd {
 
         System.out.println(gcd);
         System.out.println(lcm);
+
+        sc.close();
     }
 }

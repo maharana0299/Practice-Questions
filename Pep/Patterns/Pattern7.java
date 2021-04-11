@@ -1,3 +1,5 @@
+package Pep.Patterns;
+
 import java.util.Scanner;
 
 /**

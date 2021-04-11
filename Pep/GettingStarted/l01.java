@@ -1,4 +1,4 @@
-package Pep;
+package Pep.GettingStarted;
 
 import java.util.Scanner;
 

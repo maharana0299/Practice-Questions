@@ -1,3 +1,5 @@
+package Pep.Patterns;
+
 import java.util.Scanner;
 
 /**
@@ -39,9 +41,7 @@ public class pattern5 {
         Scanner scn = new Scanner(System.in);
 
         int n = scn.nextInt();
-        
-        int sp = n/2;
-        int st = 1;
+    
         
         for(int r = 1; r <= n; r++) {
             for(int c = 1; c <= n; c++) {

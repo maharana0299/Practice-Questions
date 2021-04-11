@@ -1,4 +1,4 @@
-package Pep;
+package Pep.GettingStarted;
 
 /**
  * l02
