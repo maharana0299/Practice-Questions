@@ -3,7 +3,7 @@ package BinaryTree;
 /**
  * LISS
  */
-public class LISS {
+public class LISSProblem {
 
     public int LISS(Node node){
     
