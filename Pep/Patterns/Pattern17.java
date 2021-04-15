@@ -1,5 +1,7 @@
 package Pep.Patterns;
 
+import java.util.Scanner;
+
 /**
  * Pattern17
  */
@@ -31,5 +33,6 @@ public class Pattern17 {
             
             System.out.println();
         }
+        scn.close();
     }
 }

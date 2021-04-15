@@ -1,20 +1,18 @@
 package Pep.Patterns;
 
+import java.util.Scanner;
+
 /**
  * Pattern19
  */
 public class Pattern19 {
 
-    import java.util.*;
+    public static void main(String[] args) {
+        Scanner scn = new Scanner(System.in);
 
-public class Main{
-
-public static void main(String[] args) {
-    Scanner scn = new Scanner(System.in);
-
-    int n = scn.nextInt();
-    
-    for(int i =1; i<= n; i++){
+        int n = scn.nextInt();
+        
+        for(int i =1; i<= n; i++){
             for (int j =1; j <= n; j++){
                 
                 if (i ==1) {
@@ -25,7 +23,7 @@ public static void main(String[] args) {
                     }
                 } else if ( i <= n/2) {
                     if (j == n || j == n/2 + 1) {
-                     System.out.print("*\t");
+                    System.out.print("*\t");
                     } else {
                         System.out.print("\t");
                     }
@@ -33,7 +31,7 @@ public static void main(String[] args) {
                     System.out.print("*\t");
                 } else if (i < n) {
                     if (j == 1 || j == n/2 + 1) {
-                     System.out.print("*\t");
+                    System.out.print("*\t");
                     } else {
                         System.out.print("\t");
                     }
@@ -47,6 +45,7 @@ public static void main(String[] args) {
             }
             System.out.println();
         }
- }
-}
+
+        scn.close();
+    }
 }

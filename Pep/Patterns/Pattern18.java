@@ -86,5 +86,6 @@ public class Pattern18 {
             }
             
             System.out.println();
+        }
     }
 }

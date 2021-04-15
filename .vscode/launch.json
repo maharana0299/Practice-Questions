@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch GcdSum",
+            "request": "launch",
+            "mainClass": "Codeforces.GcdSum",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
+            "name": "Launch gcd",
+            "request": "launch",
+            "mainClass": "Pep.GettingStarted.gcd",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
             "name": "Launch primeFactorisation",
             "request": "launch",
             "mainClass": "Pep.GettingStarted.primeFactorisation",

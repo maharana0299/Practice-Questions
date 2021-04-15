@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-class codeForeces {
+public class CodeForce_1481B {
     public static void main(String... args) throws FileNotFoundException {
 
         File f = new File("input.txt");
