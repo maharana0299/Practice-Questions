@@ -1,3 +1,4 @@
+import java.util.List;
 
 public class WordSubset {
     public List<String> wordSubsets(String[] A, String[] B) {
