@@ -17,6 +17,7 @@ public class FindElement {
         int ele  = sc.nextInt();
         int eleIndex = searchForElement(arr,ele);
         System.out.println(eleIndex);
+        sc.close();
     }
 
     private static int searchForElement(int[] arr, int ele) {
