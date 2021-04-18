@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch RotateArray",
+            "request": "launch",
+            "mainClass": "Pep.Arrays.RotateArray",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
             "name": "Launch CodeForce_1511B",
             "request": "launch",
             "mainClass": "Codeforces.CodeForce_1511B",
