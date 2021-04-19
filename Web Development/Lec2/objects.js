@@ -33,4 +33,6 @@ let karr = Object.keys(bruce);
 
 for (let i = 0; i < karr.length; i++) {
     console.log(bruce[karr[i]]);
-}
+} // for delete we use delete keyword
+delete bruce.abc;
+// console.log(bruce);
