@@ -17,3 +17,7 @@
 * git push -u origin main 
 
 Always -> git push 
+
+## To ignore something in git 
+* create a git .ignore file 
+* add file name to it 
