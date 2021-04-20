@@ -19,5 +19,8 @@
 Always -> git push 
 
 ## To ignore something in git 
-* create a git .ignore file 
+* create a .gitignore file 
 * add file name to it 
+
+## How To checkout  ? 
+* git checkout commitid
