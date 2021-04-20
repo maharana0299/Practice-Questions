@@ -131,5 +131,3 @@ function removeNorB() {
 //             isOneExist = true;
 //         }
 // }
-
-// console.log("options", options);

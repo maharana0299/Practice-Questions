@@ -8,4 +8,5 @@
 * git init     -> to initialize the git 
 * git add .    -> add all files/folders to tracking
 * git commit -m "Desc Of what you have done"
-
+    Every Commit have specific id 
+* git log -> list all the commits, To exit press q or z
