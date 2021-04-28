@@ -1,8 +1,11 @@
 const cheerio = require('cheerio');
 const request = require('request');
-const link = 'https://www.espncricinfo.com/series/ipl-2020-21-1210595/sunrisers-hyderabad-vs-royal-challengers-bangalore-3rd-match-1216534/full-scorecard';
+// const link = 'https://www.espncricinfo.com/series/ipl-2020-21-1210595/sunrisers-hyderabad-vs-royal-challengers-bangalore-3rd-match-1216534/full-scorecard';
 
-request(link, getMessage);
+
+function getMatchLinks(link) {
+    request(link, getMessage);
+}
 
 function getMessage(e, r, data) {
     process(data);
@@ -25,6 +28,7 @@ function process(data) {
 }
 
 function getStats(allTrs, ch) {
+    console.log('################################');
     // length - 1 coz it contains one extra empty player
     for (let j = 0; j < allTrs.length - 1; j++) {
         let allTds = ch(allTrs[j]).find('td');
@@ -38,7 +42,9 @@ function getStats(allTrs, ch) {
             let sixes = ch(allTds[6]).text().trim();
 
             console.log(`Batsman - ${batsmanName}, Runs - ${runs}, Balls - ${balls}, Fours - ${fours}, Sixes - ${sixes}`);
-
         }
     }
+    console.log('################################');
 }
+
+module.exports = getMatchLinks;
