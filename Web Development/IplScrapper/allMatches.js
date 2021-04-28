@@ -13,9 +13,11 @@ function processData(html) {
     // get liks of all the matchess !!!
     let ch = cheerio.load(html);
     let allATags = ch('a[data-hover="Scorecard"]');
+
+    // {},{},{} .....
     for (let i = 0; i < allATags.length; i++) {
         let matchLink = baseUrl + ch(allATags[i]).attr("href");
-        console.log(matchLink);
+        console.log(matchLink); // got all scorecard links
     }
 }
 
