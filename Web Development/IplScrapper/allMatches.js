@@ -1,5 +1,6 @@
 const request = require("request");
 const cheerio = require("cheerio");
+const fs = require('fs');
 const getMatchLinks = require('./match.js');
 
 
@@ -18,14 +19,14 @@ function processData(html) {
     let allATags = ch('a[data-hover="Scorecard"]');
 
     // {},{},{} .....
-    for (let i = 0; i < allATags.length; i++) {
-        let matchLink = baseUrl + ch(allATags[i]).attr("href");
-        // console.log(matchLink); // got all scorecard links
+    if (!fs.existsSync(`./IPL`)) {
+        fs.mkdirSync('./IPL')
+        for (let i = 0; i < allATags.length; i++) {
+            let matchLink = baseUrl + ch(allATags[i]).attr("href");
+            // console.log(matchLink); // got all scorecard links
 
-        getMatchLinks(matchLink);
+            getMatchLinks(matchLink);
+        }
     }
 }
-
-
-
 module.exports = getAllMatches;
