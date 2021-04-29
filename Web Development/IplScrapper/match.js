@@ -109,4 +109,5 @@ function processDetails(teamName, batsmanName, runs, balls, fours, sixes) {
         createBatsmanFile(teamName, batsmanName, runs, balls, fours, sixes);
     }
 }
+
 module.exports = getMatchLinks;
