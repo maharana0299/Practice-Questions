@@ -23,8 +23,18 @@ public class Graphs {
         vertices.put(vname, vtx);
     }
 
-    public void removeVertex(){
+    public void removeVertex(String vname){
+        
+        Vertex vtx = vertices.get(vname);
 
+        ArrayList<String> keys = new ArrayList<>(vtx.nbrs.keySet());
+        for(String key : keys) {
+
+            Vertex nbrVrtx = vertices.get(key);
+            nbrVrtx.nbrs.remove(vname);
+        }
+
+        vertices.remove(vname);
     }
 
     public boolean containsVerteX(String vname){
@@ -81,4 +91,17 @@ public class Graphs {
         vx1.nbrs.remove(v2);
         vx2.nbrs.remove(v1);
     }
+
+    public void display(){
+        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
+
+        System.out.println("----------------------------------------");
+        for(String key : keys){
+
+            Vertex vtx = vertices.get(key);
+            System.out.println(key + " " + vtx.nbrs);
+        }
+        System.out.println("----------------------------------------");
+    }
+
 }
