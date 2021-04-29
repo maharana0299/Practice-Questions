@@ -31,6 +31,7 @@ function processData(data) {
 function getStats(allTrs, ch, teamName) {
     for (let j = 0; j < allTrs.length - 1; j++) {
         let allTds = ch(allTrs[j]).find('td');
+
         if (allTds.length > 1) {
 
             // getting all details
@@ -47,11 +48,41 @@ function getStats(allTrs, ch, teamName) {
 }
 
 function processDetails(teamName, batsmanName, runs, balls, fours, sixes) {
-    createIfNotExist('./leaderBoad.json');
+    let leaderPath = './leaderBoad.json';
+    createIfNotExist(leaderPath);
 
-    let leaderBoadJson = fs.readFileSync('./leaderBoad.json');
+    let leaderBoadJson = fs.readFileSync(leaderPath);
     leaderBoadJson = JSON.parse(leaderBoadJson);
-    console.log(leaderBoadJson[batsmanName]);
+    // console.log(leaderBoadJson[batsmanName]);
+    batsmanName = generateName(batsmanName);
+    console.log(batsmanName);
+    if (leaderBoadJson[batsmanName] == undefined) {
+        let batDetails = {
+            Name: batsmanName,
+            Runs: Number(runs),
+            Sixes: Number(sixes),
+            Fours: Number(fours),
+            'Team Name ': teamName,
+            'Fifty': Number(runs) < 100 && Number(runs) >= 50 ? 1 : 0,
+            'Hundred': Number(runs) >= 100 ? 1 : 0,
+        }
+        leaderBoadJson[batsmanName] = batDetails;
+        // fs.writeFileSync(leaderPath, JSON.stringify(leaderBoadJson));
+    } else {
+        let details = leaderBoadJson[batsmanName];
+        details['Runs'] = Number(details['Runs']) + Number(runs);
+        details['Sixes'] = Number(details['Sixes']) + Number(sixes);
+        details['Fours'] = Number(details['Fours']) + Number(fours);
+        if (Number(runs) < 100 && Number(runs) >= 50) {
+            details['Fifty'] = details['Fifty'] + 1;
+        }
+        if (Number(runs) >= 100) {
+            details['Hundred'] = details['Hundred'] + 1;
+        }
+    }
+
+    fs.writeFileSync(leaderPath, JSON.stringify(leaderBoadJson));
+
     // todo
 }
 
@@ -60,6 +91,12 @@ function createIfNotExist(file) {
         let json = {};
         fs.writeFileSync(file, JSON.stringify(json));
     }
+}
+
+function generateName(batsmanName) {
+    let a = batsmanName.toString().split(/[\s]+/);
+    // return a[0] + " " + a[1].slice(0, 3) + '.';
+    return a[0] + " " + a[1];
 }
 
 // let json = {
