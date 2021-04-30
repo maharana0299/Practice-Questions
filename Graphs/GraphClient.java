@@ -17,7 +17,7 @@ public class GraphClient {
         
         graph.addEdge("A", "B", 2);
         graph.addEdge("A", "D", 21);
-        // graph.addEdge("B", "C", 22);
+        graph.addEdge("B", "C", 22);
         graph.addEdge("C", "D", 21);
         graph.addEdge("D", "E", 34);
         graph.addEdge("E", "F", 34);
@@ -36,7 +36,7 @@ public class GraphClient {
         // System.out.println(graph.dfsSearch("A", "F"));
         // graph.display();
         // graph.dft();
-        System.out.println(graph.isCyclePresent());
+        System.out.println(graph.isConnected());
 
     }
 }
