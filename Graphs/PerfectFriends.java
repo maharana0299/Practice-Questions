@@ -50,6 +50,8 @@ public class PerfectFriends {
         }
 
         System.out.println(pairs);
+
+        sc.close();
     }
 
     private static void drawTree(ArrayList<PerfectFriends.Edge>[] graph, int i, ArrayList<Integer> ls, boolean[] visited) {

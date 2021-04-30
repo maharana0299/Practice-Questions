@@ -21,7 +21,7 @@ public class GraphClient {
         graph.addEdge("C", "D", 21);
         graph.addEdge("D", "E", 34);
         graph.addEdge("E", "F", 34);
-        graph.addEdge("E", "G", 34);
+        graph.addEdge("E", "G", 34) ;
         graph.addEdge("F", "G", 11);
 
         graph.display();
@@ -29,10 +29,13 @@ public class GraphClient {
         System.out.println(graph.noOfEdges());
         System.out.println(graph.conTainsEdge("A","C"));
         System.out.println(graph.numVertex());
-        graph.removeEdge("A", "B");
-        graph.addVertex("M");
-        graph.addEdge("A", "M", 10);
-        graph.display();
+        graph.removeEdge("E", "D");
+        // graph.addVertex("M");
+        // graph.addEdge("A", "M", 10);
+
+        // System.out.println(graph.dfsSearch("A", "F"));
+        // graph.display();
+        graph.dft();
 
     }
 }

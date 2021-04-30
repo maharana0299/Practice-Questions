@@ -1,5 +1,8 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 /**
  * Graphs
@@ -7,6 +10,7 @@ import java.util.HashMap;
 public class Graphs {
 
     class Vertex{
+
         HashMap<String,Integer> nbrs = new HashMap<>();
     }
 
@@ -43,6 +47,7 @@ public class Graphs {
     }
 
     public int noOfEdges(){
+
         // calcluate total edges
         ArrayList<String> keys =  new ArrayList<>(vertices.keySet());
         int count = 0;
@@ -81,6 +86,7 @@ public class Graphs {
     }
 
     public void removeEdge(String v1, String v2){
+
         Vertex  vx1 = vertices.get(v1);
         Vertex vx2 = vertices.get(v2);
 
@@ -93,8 +99,8 @@ public class Graphs {
     }
 
     public void display(){
-        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
 
+        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
         System.out.println("----------------------------------------");
         for(String key : keys){
 
@@ -104,4 +110,203 @@ public class Graphs {
         System.out.println("----------------------------------------");
     }
 
+    public boolean hasPathBFS(String src, String dest){
+
+        HashMap<String,Boolean> processed = new HashMap<>();
+        Queue<Pair> queue = new LinkedList<>();
+
+        Pair sp = new Pair();
+        sp.vname = src;
+        sp.psf = src;
+
+        queue.add(sp);
+
+        while(!queue.isEmpty()) {
+
+            Pair rp = queue.remove();
+
+            if(processed.containsKey(rp.vname)){
+                // if already processed then process for next iteration
+                continue;
+            }
+            //processed put
+            processed.put(rp.vname, true);
+
+            // check direct edge 
+            if(conTainsEdge(rp.vname, dest)){
+                System.out.println(rp.psf + dest);
+                return true;
+            }
+
+            Vertex rpvtx = vertices.get(rp.vname);
+            ArrayList<String> nbrs = new ArrayList<>(rpvtx.nbrs.keySet());
+
+            for(String nbr : nbrs) {
+                if(!processed.containsKey(nbr)){
+                    Pair mp = new Pair();
+                    mp.vname = nbr;
+                    mp.psf = rp.psf + nbr;
+
+                    queue.add(mp);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public boolean dfsSearch(String src, String dest){
+
+        HashMap<String,Boolean> processed = new HashMap<>();
+        Stack<Pair> stack = new Stack<>();
+
+        Pair sp = new Pair();
+        sp.vname = src;
+        sp.psf = src;
+
+        stack.push(sp);
+
+        while(!stack.isEmpty()) {
+
+            Pair rp = stack.pop();
+
+            if(processed.containsKey(rp.vname)){
+                // if already processed then process for next iteration
+                continue;
+            }
+            //processed put
+            processed.put(rp.vname, true);
+
+            // check direct edge 
+            if(conTainsEdge(rp.vname, dest)){
+                System.out.println(rp.psf + dest);
+                return true;
+            }
+
+            Vertex rpvtx = vertices.get(rp.vname);
+            ArrayList<String> nbrs = new ArrayList<>(rpvtx.nbrs.keySet());
+
+            for(String nbr : nbrs) {
+                if(!processed.containsKey(nbr)){
+                    Pair mp = new Pair();
+                    mp.vname = nbr;
+                    mp.psf = rp.psf + nbr;
+
+                    stack.push(mp);
+                }
+            }
+        }
+
+        return false;
+    }
+
+    public void bft() {
+
+        HashMap<String,Boolean> processed = new HashMap<>();
+        Queue<Pair> queue = new LinkedList<>();
+
+        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
+
+        for(String key : keys) {
+
+            if(processed.containsKey(key)){
+                continue;
+            }
+            Pair sp = new Pair();
+            sp.vname = key;
+            sp.psf = key;
+
+            queue.add(sp);
+
+            while(!queue.isEmpty()) {
+
+                Pair rp = queue.remove();
+
+                if(processed.containsKey(rp.vname)){
+                    // if already processed then process for next iteration
+                    continue;
+                }
+                //processed put
+                processed.put(rp.vname, true);
+
+                // check direct edge 
+                // if(conTainsEdge(rp.vname, dest)){
+                //     System.out.println(rp.psf + dest);
+                //     return true;
+                // }
+                System.out.println(rp.vname + " " + rp.psf);
+
+                Vertex rpvtx = vertices.get(rp.vname);
+                ArrayList<String> nbrs = new ArrayList<>(rpvtx.nbrs.keySet());
+
+                for(String nbr : nbrs) {
+                    if(!processed.containsKey(nbr)){
+                        Pair mp = new Pair();
+                        mp.vname = nbr;
+                        mp.psf = rp.psf + nbr;
+
+                        queue.add(mp);
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void dft(){
+        HashMap<String,Boolean> processed = new HashMap<>();
+        Stack<Pair> stack = new Stack<>();
+
+        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
+
+        for(String key : keys) {
+
+            if(processed.containsKey(key)){
+                continue;
+            }
+            Pair sp = new Pair();
+            sp.vname = key;
+            sp.psf = key;
+
+            stack.push(sp);
+
+            while(!stack.isEmpty()) {
+
+                Pair rp = stack.pop();
+
+                if(processed.containsKey(rp.vname)){
+                    // if already processed then process for next iteration
+                    continue;
+                }
+                //processed put
+                processed.put(rp.vname, true);
+
+                // check direct edge 
+                // if(conTainsEdge(rp.vname, dest)){
+                //     System.out.println(rp.psf + dest);
+                //     return true;
+                // }
+                System.out.println(rp.vname + " " + rp.psf);
+
+                Vertex rpvtx = vertices.get(rp.vname);
+                ArrayList<String> nbrs = new ArrayList<>(rpvtx.nbrs.keySet());
+
+                for(String nbr : nbrs) {
+                    if(!processed.containsKey(nbr)){
+                        Pair mp = new Pair();
+                        mp.vname = nbr;
+                        mp.psf = rp.psf + nbr;
+
+                        stack.push(mp);
+                    }
+                }
+            }
+        }
+
+    }
+
+    private class Pair{
+        String vname;
+        String psf;
+    }
 }
