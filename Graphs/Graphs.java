@@ -305,6 +305,61 @@ public class Graphs {
 
     }
 
+    public boolean isCyclePresent() {
+
+        HashMap<String,Boolean> processed = new HashMap<>();
+        Queue<Pair> queue = new LinkedList<>();
+
+        ArrayList<String> keys = new ArrayList<>(vertices.keySet());
+
+        for(String key : keys) {
+
+            if(processed.containsKey(key)){
+                continue;
+            }
+            Pair sp = new Pair();
+            sp.vname = key;
+            sp.psf = key;
+
+            queue.add(sp);
+
+            while(!queue.isEmpty()) {
+
+                Pair rp = queue.remove();
+
+                if(processed.containsKey(rp.vname)){
+                    // if already processed then process for next iteration
+                    return true;
+                }
+                //processed put
+                processed.put(rp.vname, true);
+
+                // check direct edge 
+                // if(conTainsEdge(rp.vname, dest)){
+                //     System.out.println(rp.psf + dest);
+                //     return true;
+                // }
+                System.out.println(rp.vname + " " + rp.psf);
+
+                Vertex rpvtx = vertices.get(rp.vname);
+                ArrayList<String> nbrs = new ArrayList<>(rpvtx.nbrs.keySet());
+
+                for(String nbr : nbrs) {
+                    if(!processed.containsKey(nbr)){
+                        Pair mp = new Pair();
+                        mp.vname = nbr;
+                        mp.psf = rp.psf + nbr;
+
+                        queue.add(mp);
+                    }
+                }
+            }
+        }
+        
+        return false;
+    }
+
+ 
     private class Pair{
         String vname;
         String psf;
