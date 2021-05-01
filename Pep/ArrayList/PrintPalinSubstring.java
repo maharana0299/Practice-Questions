@@ -10,7 +10,7 @@ public class PrintPalinSubstring {
 		Scanner scn = new Scanner(System.in);
 		String str = scn.next();
 		printAllPalendromicString(str);
-        scn.close()
+        scn.close();
 	}
 	
 	public static void printAllPalendromicString(String s){
