@@ -14,7 +14,10 @@ public class GraphClient {
         graph.addVertex("E");
         graph.addVertex("F");
         graph.addVertex("G");
-        
+        graph.addVertex("L");
+        graph.addVertex("P");
+
+        graph.addEdge("L", "P", 12);
         graph.addEdge("A", "B", 2);
         graph.addEdge("A", "D", 21);
         graph.addEdge("B", "C", 22);
@@ -36,7 +39,7 @@ public class GraphClient {
         // System.out.println(graph.dfsSearch("A", "F"));
         // graph.display();
         // graph.dft();
-        System.out.println(graph.isConnected());
+        System.out.println(graph.getConnectedComponents());
 
     }
 }
