@@ -457,11 +457,6 @@ public class Graphs {
                 //processed put
                 processed.put(rp.vname, true);
 
-                // check direct edge 
-                // if(conTainsEdge(rp.vname, dest)){
-                //     System.out.println(rp.psf + dest);
-                //     return true;
-                // }
                 componentStrings.add(rp.vname);
 
                 Vertex rpvtx = vertices.get(rp.vname);
@@ -483,8 +478,26 @@ public class Graphs {
         
         return compenetList;
     }
+    
     private class Pair{
         String vname;
         String psf;
+
+        Pair(){}
+    }
+
+    private class PrimsPair{
+        String acqVrtx;
+        String vname;
+        int wt;
+
+        PrimsPair(String vname, String acqVrtx){
+            
+            this.vname = vname;
+            this.acqVrtx = acqVrtx;
+            this.wt = Integer.MIN_VALUE;
+        }
+
+        PrimsPair(){}
     }
 }
