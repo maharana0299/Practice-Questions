@@ -1,7 +1,11 @@
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.LinkedList;
+import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Queue;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -479,6 +483,91 @@ public class Graphs {
         return compenetList;
     }
     
+    public Graphs MSTprims() {
+
+        Graphs mst = new Graphs();
+        Map<String,PrimsPair> map = new HashMap<>();
+        PriorityQueue<PrimsPair> heap = new PriorityQueue<>();
+        Set<String> visitedKeys = new HashSet<>();
+        // initializing
+        // for(String key : vertices.keySet()) {
+
+        //     PrimsPair np = new PrimsPair();
+        //     np.vname = key;
+        //     np.acqVrtx = null;
+        //     np.cost = Integer.MAX_VALUE;
+
+        //     heap.add(np);
+        //     map.put(key,np);
+        // }
+
+        String vinit = vertices.keySet().iterator().next();
+        PrimsPair pp = new PrimsPair(vinit,null);
+        
+        heap.add(pp);
+        
+
+        // till heap is not empty
+        while(! heap.isEmpty()) {
+
+            // remove a pair 
+            PrimsPair rp = heap.remove();
+            // map.remove(rp.vname); // also remove it from hashmap
+
+            // if(map.containsKey(rp.vname))
+            //     continue;
+            if(visitedKeys.contains(rp.vname))
+                continue;
+
+            // map.put(rp.vname,rp); // marked visited
+            visitedKeys.add(rp.vname);
+
+            if(rp.acqVrtx == null) {
+                mst.addVertex(rp.vname); // for base case
+            } else {
+                mst.addVertex(rp.vname);
+                mst.addEdge(rp.vname, rp.acqVrtx, rp.cost);
+            }
+
+            // we can;t update the value easily and also change the priority 
+            // so to ovwecome this problem, we will add the element in pq after updating its value
+            // isntead of haspmap we can use sets
+            for(String nbr : vertices.get(rp.vname).nbrs.keySet()) {
+
+                // if(map.containsKey(nbr))
+                if(visitedKeys.contains(nbr))
+                    continue;
+                
+                    PrimsPair gp = new PrimsPair();
+                    gp.vname = nbr;
+                    gp.acqVrtx = rp.vname;
+                    gp.cost = vertices.get(rp.vname).nbrs.get(nbr); // cost of nbr
+
+                    heap.add(gp);
+            }
+            // for(String nbr : vertices.get(rp.vname).nbrs.keySet()) {
+
+            //     // for pairs which are already there
+            //     if(!map.containsKey(nbr)) {
+            //         // oc 
+            //         // int oc = map.get(nbr).cost;
+            //         int nc = vertices.get(rp.vname).nbrs.get(nbr);
+            //         // if(nc < oc){
+                         
+            //             // if old cost is greater then update
+            //         PrimsPair gp = vertices.get(nbr);
+            //         gp.vname = nbr;
+            //         gp.acqVrtx = rp.vname;
+            //         gp.cost = nc;
+            //         heap.add(gp);
+            //         // }
+            //     }
+            // }
+        }
+        
+        return mst;
+    }
+
     private class Pair{
         String vname;
         String psf;
@@ -486,18 +575,25 @@ public class Graphs {
         Pair(){}
     }
 
-    private class PrimsPair{
+    private class PrimsPair implements Comparable<PrimsPair>{
+        
         String acqVrtx;
         String vname;
-        int wt;
+        int cost;
 
         PrimsPair(String vname, String acqVrtx){
             
             this.vname = vname;
             this.acqVrtx = acqVrtx;
-            this.wt = Integer.MIN_VALUE;
+            this.cost = Integer.MAX_VALUE;
         }
 
         PrimsPair(){}
+
+        // Implementing Comparable 
+        @Override
+        public int compareTo(PrimsPair o) {
+            return this.cost-o.cost;
+        }
     }
 }

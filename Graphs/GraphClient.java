@@ -14,18 +14,18 @@ public class GraphClient {
         graph.addVertex("E");
         graph.addVertex("F");
         graph.addVertex("G");
-        graph.addVertex("L");
-        graph.addVertex("P");
+        // graph.addVertex("L");
+        // graph.addVertex("P");
 
-        graph.addEdge("L", "P", 12);
+        // graph.addEdge("L", "P", 12);
         graph.addEdge("A", "B", 2);
-        graph.addEdge("A", "D", 21);
-        graph.addEdge("B", "C", 22);
-        graph.addEdge("C", "D", 21);
-        graph.addEdge("D", "E", 34);
-        graph.addEdge("E", "F", 34);
-        graph.addEdge("E", "G", 34) ;
-        graph.addEdge("F", "G", 11);
+        graph.addEdge("A", "D", 6);
+        graph.addEdge("B", "C", 3);
+        graph.addEdge("C", "D", 1);
+        graph.addEdge("D", "E", 7);
+        graph.addEdge("E", "F", 5);
+        graph.addEdge("E", "G", 7) ;
+        graph.addEdge("F", "G", 4);
 
         graph.display();
 
@@ -39,7 +39,7 @@ public class GraphClient {
         // System.out.println(graph.dfsSearch("A", "F"));
         // graph.display();
         // graph.dft();
-        System.out.println(graph.getConnectedComponents());
-
+        // System.out.println();
+        graph.MSTprims().display();
     }
 }
