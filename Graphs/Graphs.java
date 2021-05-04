@@ -545,34 +545,82 @@ public class Graphs {
 
                     heap.add(gp);
             }
-            // for(String nbr : vertices.get(rp.vname).nbrs.keySet()) {
-
-            //     // for pairs which are already there
-            //     if(!map.containsKey(nbr)) {
-            //         // oc 
-            //         // int oc = map.get(nbr).cost;
-            //         int nc = vertices.get(rp.vname).nbrs.get(nbr);
-            //         // if(nc < oc){
-                         
-            //             // if old cost is greater then update
-            //         PrimsPair gp = vertices.get(nbr);
-            //         gp.vname = nbr;
-            //         gp.acqVrtx = rp.vname;
-            //         gp.cost = nc;
-            //         heap.add(gp);
-            //         // }
-            //     }
-            // }
         }
         
         return mst;
     }
 
+    public Set<DijkPair> singleSourceShortesPathDijki(String s) {
+
+        Set<String> visited = new HashSet<>();
+        Set<DijkPair> ans = new HashSet<>();
+
+        PriorityQueue<DijkPair> pq = new PriorityQueue<>();
+
+        DijkPair mp = new DijkPair();
+        mp.vname = s;
+        mp.psf = s + "";
+        mp.wsf = 0;
+        pq.add(mp);
+
+        while(!pq.isEmpty()) {
+
+            DijkPair rm = pq.remove(); //removes min 
+
+            if(visited.contains(rm.vname))
+                continue;
+
+            visited.add(rm.vname);
+            ans.add(rm); // add to solution 
+
+            for(String nbr : vertices.get(rm.vname).nbrs.keySet()) {
+
+                if(visited.contains(nbr))
+                    continue;
+                
+                DijkPair dijkPair = new DijkPair();
+                dijkPair.vname = nbr;
+                dijkPair.psf = rm.psf + " -> " + nbr;
+                dijkPair.wsf = rm.wsf + vertices.get(rm.vname).nbrs.get(nbr); // wt
+
+                pq.add(dijkPair); // add it to pq
+            }
+        }
+        return ans;
+    }
+    
     private class Pair{
         String vname;
         String psf;
 
         Pair(){}
+    }
+
+    public class DijkPair implements Comparable<DijkPair> {
+        
+        String vname;
+        String psf;
+        int wsf;
+
+        DijkPair(){}
+
+        DijkPair(String vname,String psf, int wsf) {
+            this.psf = psf;
+            this.vname = vname;
+            this.wsf = wsf;
+        }
+
+        @Override
+        public int compareTo(Graphs.DijkPair o) {
+            return this.wsf-o.wsf;
+        }
+
+        @Override
+        public String toString() {
+            return vname + 
+            // " : " + psf + 
+            " : " + wsf;
+        }
     }
 
     private class PrimsPair implements Comparable<PrimsPair>{

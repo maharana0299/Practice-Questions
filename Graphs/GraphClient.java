@@ -18,13 +18,22 @@ public class GraphClient {
         // graph.addVertex("P");
 
         // graph.addEdge("L", "P", 12);
+        // graph.addEdge("A", "B", 2);
+        // graph.addEdge("A", "D", 6);
+        // graph.addEdge("B", "C", 3);
+        // graph.addEdge("C", "D", 1);
+        // graph.addEdge("D", "E", 7);
+        // graph.addEdge("E", "F", 5);
+        // graph.addEdge("E", "G", 7) ;
+        // graph.addEdge("F", "G", 4);
+
         graph.addEdge("A", "B", 2);
-        graph.addEdge("A", "D", 6);
         graph.addEdge("B", "C", 3);
+        graph.addEdge("A", "D", 10);
         graph.addEdge("C", "D", 1);
-        graph.addEdge("D", "E", 7);
+        graph.addEdge("D", "E", 8);
         graph.addEdge("E", "F", 5);
-        graph.addEdge("E", "G", 7) ;
+        graph.addEdge("E", "G", 6) ;
         graph.addEdge("F", "G", 4);
 
         graph.display();
@@ -40,6 +49,8 @@ public class GraphClient {
         // graph.display();
         // graph.dft();
         // System.out.println();
-        graph.MSTprims().display();
+        // graph.MSTprims().display();
+
+        System.out.println(graph.singleSourceShortesPathDijki("A").toString());
     }
 }
