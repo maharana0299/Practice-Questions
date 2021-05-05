@@ -297,16 +297,9 @@ function updateUsers(users, userObject, item) {
         // if not present 
 
         // if item is present and orders is not there
-        if (item != undefined && userObject.orders == undefined) {
+        if (item != undefined) {
 
             userObject.orders = [{ id: 1, name: item }];
-        } else if (item != undefined) {
-
-            // if item is present and orders are already there
-            userObject.orders.push({
-                id: userObject.length,
-                name: item
-            });
         }
 
         users.push(userObject);
@@ -350,7 +343,7 @@ updateUsers(
             state: "UK",
         },
     },
-    "GOT Book Series"
+    "GOT Book "
 )
 
 
@@ -366,18 +359,18 @@ updateUsers(users, {
 })
 
 
-// updateUsers(
-//     users, {
-//         name: "Ravi",
-//         age: 24,
-//         address: {
-//             local: "25 Iroda",
-//             city: "Dehradun",
-//             state: "UK",
-//         },
-//     },
-//     "Chair"
-// )
+updateUsers(
+    users, {
+        name: "Ravi",
+        age: 24,
+        address: {
+            local: "25 Iroda",
+            city: "Dehradun",
+            state: "UK",
+        },
+    },
+    "Chair"
+)
 
 console.log(
     JSON.stringify(users)
