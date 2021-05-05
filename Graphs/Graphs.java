@@ -591,6 +591,57 @@ public class Graphs {
         return ans;
     }
 
+    public ArrayList<Edge> getAllEdges() {
+        
+        ArrayList<Edge> edges = new ArrayList<>();
+
+        for(String vname : vertices.keySet()){
+
+            Vertex vtx = vertices.get(vname);
+
+            for(String nbr : vtx.nbrs.keySet()){
+
+                Edge ep = new Edge(vname,nbr,vtx.nbrs.get(nbr));
+                edges.add(ep);
+            }
+        }
+
+        return edges;
+    }
+
+    public void kruskal() {
+
+        ArrayList<Edge> edges = getAllEdges();
+        Collections.sort(edges);
+        DisJoinSet set = new DisJoinSet();
+
+        // System.out.println(edges);
+
+        // first step is to make-set for each vertex
+        for(String vname : vertices.keySet()){
+            set.makeSet(vname);
+        }
+
+        // traverse all edges
+        for(Edge edge : edges) {
+
+            
+            String re1 = set.find(edge.src);
+            String re2 = set.find(edge.dest);
+
+            // if already present in same set then skip
+            if(re1 == re2)
+                continue;
+
+            // if sets are disjoint then union 
+            set.union(edge.src, edge.dest);
+            
+            //print edgePair
+            System.out.println(edge);
+            
+        }
+    }
+    
     public class DisJoinSet {
 
         HashMap<String, Node> map = new HashMap<>();
@@ -682,57 +733,6 @@ public class Graphs {
         public String toString() {
             
             return src + "-" + dest + ": " + wt; 
-        }
-    }
-
-    public ArrayList<Edge> getAllEdges() {
-        
-        ArrayList<Edge> edges = new ArrayList<>();
-
-        for(String vname : vertices.keySet()){
-
-            Vertex vtx = vertices.get(vname);
-
-            for(String nbr : vtx.nbrs.keySet()){
-
-                Edge ep = new Edge(vname,nbr,vtx.nbrs.get(nbr));
-                edges.add(ep);
-            }
-        }
-
-        return edges;
-    }
-
-    public void kruskal() {
-
-        ArrayList<Edge> edges = getAllEdges();
-        Collections.sort(edges);
-        DisJoinSet set = new DisJoinSet();
-
-        // System.out.println(edges);
-
-        // first step is to make-set for each vertex
-        for(String vname : vertices.keySet()){
-            set.makeSet(vname);
-        }
-
-        // traverse all edges
-        for(Edge edge : edges) {
-
-            
-            String re1 = set.find(edge.src);
-            String re2 = set.find(edge.dest);
-
-            // if already present in same set then skip
-            if(re1 == re2)
-                continue;
-
-            // if sets are disjoint then union 
-            set.union(edge.src, edge.dest);
-            
-            //print edgePair
-            System.out.println(edge);
-            
         }
     }
 
