@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedList;
@@ -486,7 +488,7 @@ public class Graphs {
     public Graphs MSTprims() {
 
         Graphs mst = new Graphs();
-        Map<String,PrimsPair> map = new HashMap<>();
+        // Map<String,PrimsPair> map = new HashMap<>();
         PriorityQueue<PrimsPair> heap = new PriorityQueue<>();
         Set<String> visitedKeys = new HashSet<>();
         // initializing
@@ -588,12 +590,150 @@ public class Graphs {
         }
         return ans;
     }
-    
+
+    public class DisJoinSet {
+
+        HashMap<String, Node> map = new HashMap<>();
+
+        public void makeSet(String s) {
+
+            Node n = new Node();
+            n.data = s;
+            n.parent = n;
+            n.rank = 0; // initiallly zero
+
+            map.put(s, n);
+        }
+
+        public void union(String v1, String v2) {
+
+            v1 = find(v1);
+            v2 = find(v2);
+
+            if(v1 == v2)
+                return ;
+            else {
+                
+                Node n1 = map.get(v1);
+                Node n2 = map.get(v2);
+
+                if(n1.rank > n2.rank) {
+                    n2.parent = n1;
+                } else if(n1.rank == n2.rank ) {
+                    n1.rank += 1;
+                    n2.parent = n1;
+                } else {
+                    n1.parent = n2;
+                }
+            }
+        }
+
+        public String find(String vrtx) {
+            return findSet(map.get(vrtx)).data;
+        }
+
+        private Node findSet(Node node){
+
+            if(node == node.parent)
+                return node;
+            node.parent = findSet(node.parent); // for path compression;
+            // return findSet(node.parent);
+            return node.parent;
+        }
+
+        private class Node {
+
+            Node parent;
+            String data;
+            int rank;
+        }
+    }
+
     private class Pair{
+        
         String vname;
         String psf;
 
         Pair(){}
+    }
+
+    private class Edge implements Comparable<Edge>{
+
+        String src;
+        String dest;
+        int wt;
+
+        Edge(){}
+
+        public Edge(String src, String dest, Integer wt) {
+        
+            this.src = src;
+            this.dest = dest;
+            this.wt = wt;
+        }
+
+        @Override
+        public int compareTo(Graphs.Edge o) {
+            
+            return this.wt - o.wt;
+        }
+
+        @Override
+        public String toString() {
+            
+            return src + "-" + dest + ": " + wt; 
+        }
+    }
+
+    public ArrayList<Edge> getAllEdges() {
+        
+        ArrayList<Edge> edges = new ArrayList<>();
+
+        for(String vname : vertices.keySet()){
+
+            Vertex vtx = vertices.get(vname);
+
+            for(String nbr : vtx.nbrs.keySet()){
+
+                Edge ep = new Edge(vname,nbr,vtx.nbrs.get(nbr));
+                edges.add(ep);
+            }
+        }
+
+        return edges;
+    }
+
+    public void kruskal() {
+
+        ArrayList<Edge> edges = getAllEdges();
+        Collections.sort(edges);
+        DisJoinSet set = new DisJoinSet();
+
+        // System.out.println(edges);
+
+        // first step is to make-set for each vertex
+        for(String vname : vertices.keySet()){
+            set.makeSet(vname);
+        }
+
+        // traverse all edges
+        for(Edge edge : edges) {
+
+            
+            String re1 = set.find(edge.src);
+            String re2 = set.find(edge.dest);
+
+            // if already present in same set then skip
+            if(re1 == re2)
+                continue;
+
+            // if sets are disjoint then union 
+            set.union(edge.src, edge.dest);
+            
+            //print edgePair
+            System.out.println(edge);
+            
+        }
     }
 
     public class DijkPair implements Comparable<DijkPair> {

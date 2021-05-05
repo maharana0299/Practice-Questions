@@ -51,6 +51,8 @@ public class GraphClient {
         // System.out.println();
         // graph.MSTprims().display();
 
-        System.out.println(graph.singleSourceShortesPathDijki("A").toString());
+        // System.out.println(graph.singleSourceShortesPathDijki("A").toString());
+        graph.kruskal();
+        graph.MSTprims().display();
     }
 }
