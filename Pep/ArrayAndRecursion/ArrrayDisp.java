@@ -1,7 +1,5 @@
 import java.util.Scanner;
 
-import jdk.internal.jshell.tool.resources.l10n;
-
 /**
  * ArrrayDisp
  */
@@ -18,6 +16,8 @@ public class ArrrayDisp {
         }
 
         displayArr(arr, 0);
+
+        sc.close();
     }
 
     public static void displayArr(int[] arr, int idx){

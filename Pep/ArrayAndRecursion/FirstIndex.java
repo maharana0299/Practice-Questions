@@ -20,6 +20,8 @@ public class FirstIndex {
         int fi = firstIndex(arr, 0, x);
 
         System.out.println(fi);
+
+        sc.close();
     }
 
     public static int firstIndex(int[] arr, int idx, int x){

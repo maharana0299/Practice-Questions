@@ -16,6 +16,8 @@ public class MaxArr {
 
         int max = maxOfArray(arr, 0);
         System.out.println(max);
+
+        sc.close();
     }
 
     public static int maxOfArray(int[] arr, int idx){
