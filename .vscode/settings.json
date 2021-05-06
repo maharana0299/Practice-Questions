@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Pep/Arrays",
-        "Pep/2-DArray"
+        "Pep/2-DArray",
+        "Graphs"
     ]
 }
