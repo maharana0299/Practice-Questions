@@ -88,7 +88,7 @@ public class Graphs {
         } 
 
         vx1.nbrs.put(v2, wt);
-        vx2.nbrs.put(v1, wt);
+        // vx2.nbrs.put(v1, wt);
     }
 
     public void removeEdge(String v1, String v2){
@@ -642,6 +642,57 @@ public class Graphs {
         }
     }
     
+
+    /**
+     * This is for directed graph so remember to remove mulitple edges in add function
+     * Can be used to detect negative wt cycle
+     *  @param source
+     * @return
+     */
+    public HashMap<String, Integer> bellmanFord(String source) {
+
+        ArrayList<Edge> edges = getAllEdges();  // gettting all edges
+        HashMap<String, Integer> resultMap = new HashMap<>();
+
+        for(String vname : vertices.keySet()) {
+
+            resultMap.put(vname, 10000); // initialize with infinity
+            if(source.equals(vname))
+                resultMap.put(vname, 0);
+        }
+
+        // relax every edge V-1 times
+
+        for(int i = 1; i <= vertices.size(); i++) {
+
+            for(Edge edge : edges) {
+
+                int oc = resultMap.get(edge.dest);
+                int nc = resultMap.get(edge.src) + edge.wt;
+
+                if(oc > nc) {
+
+                    if(i <= vertices.size()-1)
+                    resultMap.put(edge.dest, nc); // Relax
+                    else {
+                        // it impleis negative wt sycle exist
+                        System.out.println("Negative WT Cycle Deteced!!!");
+                        return new HashMap<>();
+                    }
+                }
+            }
+        }
+        return resultMap;
+    }
+    
+    public void floyddWarshall() {
+
+        int n = vertices.size();
+        int[][] distanceMatrix = new int[n][n];
+        
+        
+    }
+
     public class DisJoinSet {
 
         HashMap<String, Node> map = new HashMap<>();
@@ -784,4 +835,5 @@ public class Graphs {
             return this.cost-o.cost;
         }
     }
+
 }
