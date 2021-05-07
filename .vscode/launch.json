@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch TomAndJerry",
+            "request": "launch",
+            "mainClass": "TomAndJerry",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
             "name": "Launch BinarySearch",
             "request": "launch",
             "mainClass": "BinarySearch",
