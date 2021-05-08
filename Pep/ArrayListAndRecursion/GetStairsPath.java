@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import jdk.internal.jshell.tool.resources.l10n;
 
 /**
  * GetStairsPath
@@ -49,5 +48,5 @@ public class GetStairsPath {
         
         return ns;
     }
-    
+
 }

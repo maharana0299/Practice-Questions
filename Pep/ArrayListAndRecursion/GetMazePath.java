@@ -13,7 +13,7 @@ public class GetMazePath {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        System.out.println(getMazePaths(0, 0, n, m));
+        System.out.println(getMazePath(0, 0, n, m));
         sc.close();
     }
 
@@ -21,7 +21,7 @@ public class GetMazePath {
     // sc - source column
     // dr - destination row
     // dc - destination column
-    public static ArrayList<String> getMazePaths(int sr, int sc, int dr, int dc) {
+    public static ArrayList<String> getMazePath(int sr, int sc, int dr, int dc) {
         
         if(sr == dr && sc == dc){
 
@@ -33,18 +33,18 @@ public class GetMazePath {
         if(sr == dr || sc == dc)
             return new ArrayList<>();
 
-        ArrayList<String> newList; = new ArrayList<>();
+        ArrayList<String> newList = new ArrayList<>();
 
         ArrayList<String> ls ;
         
-        ls =  getMazePaths(sr, sc+1, dr, dc);
+        ls =  getMazePath(sr, sc+1, dr, dc);
         
 
         for(String s : ls) {
             newList.add("h" + s);
         }
 
-        ls = getMazePaths(sr+1, sc, dr, dc);
+        ls = getMazePath(sr+1, sc, dr, dc);
 
         for(String s : ls) {
             newList.add("v"+s);
