@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * R080521
@@ -194,4 +196,42 @@ public class R080521 {
             }
         return t[nums.length][target];
     }
+
+    public List<String> addOperators(String num, int target) {
+        
+        // made an arraylist 
+        List<String> rst = new ArrayList<String>();
+        
+        helper(rst,num,target,0,0,0,""); 
+        return rst;
+    }
+    
+    public void helper(List<String> rst, String num, int target, int pos, long eval, long mlt, String path) {
+
+        if(pos == num.length()) {
+            if(target == eval) {
+                rst.add(path);
+            }
+
+            return;
+        }
+        
+        for(int i = pos; i < num.length(); i++) {    
+
+            if(i != pos && num.charAt(pos) == '0')
+                break;
+
+            long curr = Integer.parseInt(num.substring(pos, i+1));
+            if(i == 0) {
+
+                helper(rst, num, target, pos + 1, curr, curr, path + curr);
+            } else {
+
+                helper(rst, num, target, pos+1, eval + curr, curr, path + "+");
+                helper(rst, num, target, pos+1, eval - curr, curr, path + "-");
+                helper(rst, num, target, pos+1, eval - mlt + mlt * curr, mlt * curr, path + "*" + curr);
+            }
+        }
+    }
 }
+
