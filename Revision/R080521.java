@@ -138,5 +138,60 @@ public class R080521 {
         return maximum;
     }
 
+    public static boolean findTargetSum(int [] c, int t) {
+        
+        int n = c.length;
+        boolean[][] isTarget = new boolean[n+1][t+1];
 
+        /**
+         * Is taget present for an t[i,j] = isTarget there is prev ie, t[i-1][j] or target present in t[i-1][j-c[i-1]]
+         * if zero elements are selected then no target
+         * if trget is zero then true for all
+         */
+
+        for(int i = 0; i <= n; i++) {
+            isTarget[i][0] = true;
+        }
+
+        for(int i = 1; i <= n; i++) {
+            for(int j = 1; j <= t; j++) {
+
+                isTarget[i][j] = isTarget[i-1][j];
+
+                if(c[i-1] <= j) {
+
+                    isTarget[i][j] |= isTarget[i-1][j-c[i-1] ]; 
+                }
+            }
+        }
+ 
+        return isTarget[n][t];
+    }
+    
+    public int findTargetSumWays(int[] nums, int S) {
+        
+        // s1 = (S + sumArray)
+        int sum = 0;
+        for(int i: nums) 
+            sum += i;;
+        if (nums.length == 0  || (S + sum) % 2 != 0)  return 0;
+        
+        int target =((S + sum ) /2 );
+        if (target > sum) return 0;
+        int[][] t = new int[nums.length + 1][target+1];
+        
+        
+        for (int i = 0; i <= target; i++) {
+            t[0][i] = 0;
+        }
+        
+        t[0][0] = 1;
+        for (int i = 1; i <= nums.length; i++)
+        for (int j = 0; j <= target; j++){
+                if( nums[i-1] <= j ) {
+                    t[i][j] = t[i-1][j] + t[i-1][j-nums[i-1]];
+                } else t[i][j] = t[i-1][j];
+            }
+        return t[nums.length][target];
+    }
 }
