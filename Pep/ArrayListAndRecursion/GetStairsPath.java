@@ -20,30 +20,34 @@ public class GetStairsPath {
 
     public static ArrayList<String> getStairPaths(int n) {
         
-        if(n < 0)
-            return null;
-        if(n == 0){
+        if (n == 0) {
             ArrayList<String> ls = new ArrayList<>();
             ls.add("");
+            return ls;
         }
-        ArrayList<String> ans = new ArrayList<>();
-        ArrayList<String> l1 = getStairPaths(n-1);
-
-        for(String l : l1) {
-            ans.add(1+l);
+        
+        if (n < 0) {
+             ArrayList<String> ls = new ArrayList<>();
+            return ls;
         }
-        l1 = getStairPaths(n-2);
-
-        for(String l : l1) {
-            ans.add(1+l);
+        
+        ArrayList<String> getString = getStairPaths(n-1); 
+        ArrayList<String> ns = new ArrayList<>();
+        for (String i : getString) {
+           ns.add("1" + i);
         }
-
-        l1  = getStairPaths(n-3);
-
-        for(String l : l1) {
-            ans.add(1+l);
+        
+        getString = getStairPaths(n-2);
+        for (String i : getString) {
+           ns.add("2" + i);
         }
-
-        return ans;
+        
+        getString = getStairPaths(n-3);
+        for (String i : getString) {
+           ns.add("3" + i );
+        }
+        
+        return ns;
     }
+    
 }
