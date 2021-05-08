@@ -34,13 +34,10 @@ public class GetMazePathsWithJumps {
         ArrayList<String> diagonal = new ArrayList<>();
         ArrayList<String> solution = new ArrayList<>();
          
-        if (sc < dc ){
-            
-            int m = dr - dc;
-            
-            for(int i = 1; i <= m; i++) {
-                
-                horizontal = getMazePath(sr,sc+i,dr,dc);
+        if (sc < dc) {
+            int m = dc - sc;
+            for (int i = 1; i <= m; i++) {
+                horizontal = getMazePath(sr,sc + i,dr,dc);
                 for (String in : horizontal) {
                     solution.add("h" + i + in);
                 }
@@ -49,7 +46,7 @@ public class GetMazePathsWithJumps {
         
         if (sr < dr){
             
-            int n = dc - sc;
+            int n = dr - sr;
             
             for(int i = 1; i <= n; i++) {
                 
@@ -74,5 +71,4 @@ public class GetMazePathsWithJumps {
         
         return solution; 
     }
-
 }
