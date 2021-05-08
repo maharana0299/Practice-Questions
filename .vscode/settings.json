@@ -2,6 +2,7 @@
     "java.project.sourcePaths": [
         "Pep/Arrays",
         "Pep/2-DArray",
-        "Hackerrank"
+        "Hackerrank",
+        "Revision"
     ]
 }
