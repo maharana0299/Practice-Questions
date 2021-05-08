@@ -23,33 +23,34 @@ public class GetMazePath {
     // dc - destination column
     public static ArrayList<String> getMazePath(int sr, int sc, int dr, int dc) {
         
-        if(sr == dr && sc == dc){
-
+        if (sr == dr && sc == dc) {
             ArrayList<String> ls = new ArrayList<>();
             ls.add("");
             return ls;
         } 
-
-        if(sr == dr || sc == dc)
-            return new ArrayList<>();
-
-        ArrayList<String> newList = new ArrayList<>();
-
-        ArrayList<String> ls ;
         
-        ls =  getMazePath(sr, sc+1, dr, dc);
+        ArrayList<String> path1 = new ArrayList<>();
+        ArrayList<String> path2 = new ArrayList<>();
         
-
-        for(String s : ls) {
-            newList.add("h" + s);
+        if (sc < dc ){
+            path1 = getMazePath(sr,sc+1,dr,dc);
         }
-
-        ls = getMazePath(sr+1, sc, dr, dc);
-
-        for(String s : ls) {
-            newList.add("v"+s);
+        
+        if (sr < dr){
+            path2 = getMazePath(sr+1,sc,dr,dc);
         }
-
-        return newList;
+        
+        ArrayList<String> paths = new ArrayList<>();
+        
+        for (String i : path1) {
+            paths.add("h" + i);
+        }
+        
+        for (String i : path2) {
+            paths.add("v" + i);
+        }
+        
+        return paths; 
     }
+
 }
