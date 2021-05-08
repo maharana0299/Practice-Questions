@@ -98,4 +98,9 @@ public class R080521 {
         return dp[0][0];
     }
 
+    public static int calculateGoldMine(int mines[]) {
+        
+        return 0;
+    }
+
 }
