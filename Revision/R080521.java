@@ -4,7 +4,7 @@
  */
 public class R080521 {
     
-    public int fibonacii(int n) {
+    public static int fibonacii(int n) {
 
         int fib[] = new int[n+1];
         
@@ -98,9 +98,45 @@ public class R080521 {
         return dp[0][0];
     }
 
-    public static int calculateGoldMine(int mines[]) {
+    public static int calculateGoldMine(int mines[][]) {
         
-        return 0;
+        int n = mines.length;
+        int m = mines[0].length;
+
+        int profit[][] = new int[n][m];
+        int maximum = Integer.MIN_VALUE;
+
+        for(int j = m-1; j >= 0; j--) {
+            for(int i = 0; i < n; i++) {
+
+                if(j == m-1) {
+                    
+                    profit[i][j] = mines[i][j];
+                } else if(i == n-1) {
+                    
+                    profit[i][j] = mines[i][j] + Math.max(profit[i][j+1], profit[i-1][j+1]);
+                } else if(i == 0) {
+                    
+                    profit[i][j] = mines[i][j] + Math.max(profit[i][j+1], profit[i+1][j+1]);
+                    
+                } else {
+
+                    int c1 = profit[i][j+1];
+                    int c2 = profit[i+1][j+1];
+                    int c3 = profit[i-1][j+1];
+
+                    profit[i][j] = mines[i][j] + Math.max(c1, Math.max(c2, c3));
+                }
+            }
+        }
+
+        for(int i = 0; i < n; i++) {
+
+            if(maximum < profit[i][0])
+                maximum = profit[i][0];
+        }
+        return maximum;
     }
+
 
 }
