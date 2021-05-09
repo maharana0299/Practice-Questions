@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "Revision",
         "Pep/Arrays",
         "Pep/2-DArray",
         "Hackerrank",
-        "Revision"
+        "Codeforces"
     ]
 }

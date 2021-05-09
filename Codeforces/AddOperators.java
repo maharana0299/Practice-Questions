@@ -1,3 +1,6 @@
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * AddOperators
  */
@@ -55,5 +58,70 @@ public class AddOperators {
             if (n == 0) break;
         }
         return ret;
+    }
+
+    
+}
+
+class Solution {
+    public List<String> addOperators(String num, int target) {
+        
+        List<String> ans = new LinkedList<>();
+
+        if(num.length() > 0) {
+
+            char digits[] = num.toCharArray();
+            char path[] = new char[digits.length + digits.length-1];
+
+            // Iterate for ever substing 
+            long number = 0;
+            
+            for(int i = 0; i < digits.length; i++) {
+
+                number = number * 10 + digits[i] - '0';
+
+                int pathIndex = i;
+                path[pathIndex] = digits[i];
+                pathIndex = pathIndex + 1;
+
+                dfs(ans, path, pathIndex, 0, number, digits, i+1, target);
+
+                if(number == 0)
+                    break;
+            }
+        }
+
+        return ans;
+    }
+
+    private void dfs(List<String> ans, char[] path, int pathIndex, long lastNumber, long currentNumber, char[] digits, int digitIndex,
+            int target) {
+        
+        if(digitIndex == digits.length) {
+            if(currentNumber + lastNumber == target) {
+                ans.add(new String(path,0,pathIndex));
+            }
+        }
+        
+        long number = 0;
+        int j = pathIndex+1;
+
+        for(int dI = digitIndex; dI < digits.length; dI++) {
+
+            number = number * 10 + digits[dI] - '0';
+            path[j++] = digits[dI];
+
+            path[pathIndex] = '+';
+            dfs(ans, path, j, lastNumber + currentNumber, number, digits, dI + 1, target);
+            
+            path[pathIndex] = '-';
+            dfs(ans, path, j, lastNumber + currentNumber, -number, digits, dI + 1, target);
+
+            path[pathIndex] = '*';
+            dfs(ans, path, j, lastNumber, currentNumber * number, digits, dI + 1, target);
+
+            if(number == 0)
+                break;
+        }
     }
 }
