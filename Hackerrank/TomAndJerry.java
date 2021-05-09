@@ -16,9 +16,7 @@ public class TomAndJerry {
         int jerryPos = 1000000;
         
         int n = sc.nextInt();
-
-        int t = n;
-
+        
         int indices[] = new int[n];
         int in[] = {};
         for(int i = 0; i < n; i++) {
@@ -50,6 +48,8 @@ public class TomAndJerry {
         }
 
         System.out.println(times);
+
+        sc.close();
     }
     
 }

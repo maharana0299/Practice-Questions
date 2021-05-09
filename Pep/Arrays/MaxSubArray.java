@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * MaxSubArray
  */
@@ -33,6 +35,6 @@ public class MaxSubArray {
         }
 
         System.out.println(maxSum(arr));
-        
+        sc.close();
    }
 }

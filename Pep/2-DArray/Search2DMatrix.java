@@ -56,6 +56,6 @@ public class Search2DMatrix {
 
         boolean isFound = search(matrix,target);
         System.out.println(isFound);
-
+        scn.close();
     }
 }

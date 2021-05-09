@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * firstAndLastIndex
  */
@@ -12,6 +14,7 @@ public class firstAndLastIndex {
             arr[i] = sc.nextInt();
         int ele = sc.nextInt();
         findIndexAndPrint(arr,ele);
+        sc.close();
         
     }
     
