@@ -11,3 +11,6 @@ This folder contains varoius question's solution that I solved on sites like gee
 2. CodeForce Question
     1. [Codeforce-1498A](https://github.com/maharana0299/Practice-Questions/blob/master/Codeforces/CodeForce_1498A.java)
 
+3. Leetcode
+    1. Word Ladder and Word Ladder II
+    
