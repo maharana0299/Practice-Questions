@@ -59,7 +59,7 @@ public class IsGraphBipartite {
         
         Queue<Pair> queue = new LinkedList<>();
         
-        queue.add(new Pair(src,src+"",0)); // initial level 0
+        queue.add(new Pair(src, src + "", 0)); // initial level 0
         
         while(!queue.isEmpty()){
             
@@ -84,18 +84,56 @@ public class IsGraphBipartite {
         
         return true;
     }
-}
 
-class Pair {
-    public int vname;
-    public String psf;
-    public int level;
-    
-    public Pair(){}
+    static class Pair {
+        public int vname;
+        public String psf;
+        public int level;
+        
+        public Pair(){}
 
-    public Pair(int vname, String psf, int level) {
-        this.vname = vname;
-        this.psf = psf;
-        this.level = level;
+        public Pair(int vname, String psf, int level) {
+            this.vname = vname;
+            this.psf = psf;
+            this.level = level;
+        }
+    }
+
+    public boolean isBipartite(int[][] graph) {
+        
+        //BFS
+        // 0(not meet), 1(black), 2(white)
+        int[] visited = new int[graph.length];
+        
+        for (int i = 0; i < graph.length; i++) {
+            
+            if (graph[i].length != 0 && visited[i] == 0) {
+                
+                visited[i] = 1;
+                
+                Queue<Integer> q = new LinkedList<>();
+                
+                q.offer(i);
+                
+                while(! q.isEmpty()) {
+                    int current = q.poll();
+                    for (int c: graph[current]) {
+
+                            if (visited[c] == 0) {
+                                
+                                visited[c] = (visited[current] == 1) ? 2 : 1;
+                                q.offer(c);
+                            } else {
+                                
+                                if (visited[c] == visited[current]) return false;
+                            }
+                    }
+                }                        
+                
+            }
+        }
+        
+        return true;
     }
 }
+
