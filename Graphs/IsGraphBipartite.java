@@ -135,5 +135,48 @@ public class IsGraphBipartite {
         
         return true;
     }
+
+    public boolean isBipartiteColor(int[][] graph) {
+        
+        //BFS
+        final int RED = 1;
+        final int BLACK = 2;
+        final int WHITE = 0;
+
+        int[] color = new int[graph.length];
+        Queue<Integer> q = new LinkedList<>();
+
+        for(int i = 0; i < graph.length; i++) {
+
+            if(graph[0].length != 0 && color[i] == WHITE) {
+
+                q.offer(i);
+                color[i] = RED;
+
+                while(!q.isEmpty()){
+
+                    int current = q.remove();
+                    
+                    for(Integer nbr : graph[current]) {
+
+                        //if vertex is not colored
+                        if(color[nbr] == WHITE) {
+                            
+                            if(color[current] == RED) {
+                                color[nbr] = BLACK;
+                            } else {
+                                color[nbr] = RED;
+                            }
+                        } else {
+                            if(color[current] == color[nbr])
+                                return false;
+                        }
+                    }
+                }
+            }
+        }
+       
+       return true;
+   }
 }
 
