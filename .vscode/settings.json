@@ -1,11 +1,13 @@
 {
     "java.project.sourcePaths": [
+        "tree",
         "Revision",
         "Pep/RecursionOnTheWayUp",
         "Pep/Arrays",
         "Pep/2-DArray",
         "Hackerrank",
         "Codeforces",
-        "Codechef"
+        "Codechef",
+        "Graphs"
     ]
 }

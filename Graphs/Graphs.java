@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
@@ -14,7 +15,6 @@ import java.util.Stack;
  * Graphs
  */
 public class Graphs {
-
     class Vertex{
 
         HashMap<String,Integer> nbrs = new HashMap<>();

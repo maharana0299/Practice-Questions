@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Graphs",
+            "request": "launch",
+            "mainClass": "Graphs",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
+            "name": "Launch WordLadder",
+            "request": "launch",
+            "mainClass": "WordLadder",
+            "projectName": "Practice Questions_c7494f64"
+        },
+        {
+            "type": "java",
             "name": "Launch Calculator",
             "request": "launch",
             "mainClass": "Calculator",
