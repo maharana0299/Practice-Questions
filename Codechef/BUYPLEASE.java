@@ -1,3 +1,5 @@
+package Codechef;
+
 import java.util.Scanner;
 
 /**

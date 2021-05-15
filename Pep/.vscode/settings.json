@@ -1,7 +1,11 @@
 {
     "java.project.sourcePaths": [
-        "2-DArray"
-        "ArrayList"
-        "Recursion"
+        "2-DArray",
+        "ArrayList",
+        "Recursion",
+        "ArrayAndRecursion",
+        "BackTracking",
+        "Arrays",
+        "RecursionOnTheWayUp",
     ]
 }

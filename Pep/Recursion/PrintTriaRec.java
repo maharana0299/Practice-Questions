@@ -1,3 +1,5 @@
+package Pep.Recursion;
+
 import java.util.Scanner;
 
 /**

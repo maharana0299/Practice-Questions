@@ -1,3 +1,5 @@
+package Pep.RecursionOnTheWayUp;
+
 import java.util.Scanner;
 
 /**

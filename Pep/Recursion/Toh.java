@@ -1,3 +1,7 @@
+package Pep.Recursion;
+
+import java.util.Scanner;
+
 /**
  * toh
  */
@@ -12,6 +16,7 @@ public class Toh {
         int t3id = sc.nextInt();
         
         toh(n,t1id,t2id,t3id);
+        sc.close();
     }
 
     public static void toh(int n, int t1id, int t2id, int t3id){

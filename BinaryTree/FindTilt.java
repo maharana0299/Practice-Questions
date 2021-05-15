@@ -1,3 +1,5 @@
+package BinaryTree;
+
 class Solution {
     int totalTilt;
     public int findTilt(TreeNode root) {

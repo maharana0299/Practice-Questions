@@ -1,3 +1,7 @@
+package BinaryTree;
+
+import java.util.Stack;
+
 /**
  * BSTToGreaterTree
  */
@@ -43,7 +47,7 @@ public class BSTToGreaterTree {
 
 
  
-public class TreeNode {
+class TreeNode {
     int val;
     TreeNode left;
     TreeNode right;
