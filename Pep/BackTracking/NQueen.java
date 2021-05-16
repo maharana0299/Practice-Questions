@@ -1,4 +1,4 @@
-package Pep.BackTracking;
+package  BackTracking;
 
 import java.util.Scanner;
 

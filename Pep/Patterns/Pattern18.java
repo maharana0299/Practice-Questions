@@ -1,4 +1,4 @@
-package Pep.Patterns;
+package  Patterns;
 
 import java.util.Scanner;
 

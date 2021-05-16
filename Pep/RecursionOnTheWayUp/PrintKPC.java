@@ -1,4 +1,4 @@
-package Pep.RecursionOnTheWayUp;
+package  RecursionOnTheWayUp;
 
 import java.util.Scanner;
 

@@ -1,4 +1,4 @@
-package Pep.GettingStarted;
+package  GettingStarted;
 import java.util.*;
 
 public class primeFactorisation{

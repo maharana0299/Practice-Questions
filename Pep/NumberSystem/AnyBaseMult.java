@@ -1,4 +1,4 @@
-package Pep.NumberSystem;
+package  NumberSystem;
 
 import java.util.Scanner;
 

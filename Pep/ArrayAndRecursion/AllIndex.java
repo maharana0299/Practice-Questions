@@ -1,4 +1,4 @@
-package Pep.ArrayAndRecursion;
+package  ArrayAndRecursion;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
