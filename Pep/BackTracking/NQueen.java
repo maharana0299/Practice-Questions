@@ -44,3 +44,47 @@ public class NQueen {
         return true;
     }
 }
+
+
+class DifApp {
+
+    public static void main(String[] args) throws Exception {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        placeQueen(0,"",0,n);
+        sc.close();
+        
+    }
+
+    /*
+    ________________________Step 1__________________________________
+    private static void placeQueen(int b, String psf, int qsf, int n) {
+
+        if(b == n * n) {
+            if(qsf == 2)
+            System.out.println(psf + "->" + qsf);
+            return;
+        }
+        // yes
+        placeQueen(b + 1, psf + b + " ", qsf+1, n);
+        placeQueen(b + 1, psf, qsf, n);
+    }
+    */
+
+    // next task to print option when one queen is place in one row
+
+    /*________________________Step 2__________________________________*/
+    private static void placeQueen(int r, String psf, int qsf, int n) {
+
+        if(r == n) {
+            System.out.println(psf + "->" + qsf);
+            return;
+        }
+        
+        for(int i = 0; i < n; i++) {
+            // placeQueen(r + 1, psf + "[" + r + "," + i + "" , qsf + 1, n);
+            placeQueen(r+1, psf + (r * n + i) + " ", qsf+1, n); // here we are calculating box number using the formula
+        }
+    }
+
+}
