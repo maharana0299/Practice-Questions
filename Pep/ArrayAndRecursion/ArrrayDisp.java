@@ -1,4 +1,4 @@
-package Pep.ArrayAndRecursion;
+package ArrayAndRecursion;
 
 
 import java.util.Scanner;
