@@ -29,6 +29,7 @@ function callback(error, response, html) {
 
                 let wicketTaken = ch(player[4]).text();
                 let pname = ch(player[0]).text();
+
                 // console.log(`Name: ${pname}, Wickets Taken: ${wicketTaken}`);
 
                 if (Number(wicketTaken) > topper.wickets) {
