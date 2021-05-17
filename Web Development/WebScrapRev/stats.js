@@ -1,6 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
-const fs = require('fs');
+
 
 const url = 'https://www.espncricinfo.com/series/ipl-2021-1249214/punjab-kings-vs-delhi-capitals-29th-match-1254086/full-scorecard';
 
