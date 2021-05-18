@@ -70,7 +70,6 @@ function createFileIfNotExist(fname) {
     let isExist = fs.existsSync(`./${fname}.json`);
 
     if (!isExist) {
-
         console.log('a');
         let a = {};
         fs.writeFileSync(`./${fname}.json`, JSON.stringify(a));
