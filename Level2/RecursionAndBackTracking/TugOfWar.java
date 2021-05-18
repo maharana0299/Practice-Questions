@@ -11,6 +11,7 @@ public class TugOfWar {
 		}
 		solve(arr, 0, new ArrayList<>(), new ArrayList<>(), 0, 0);
 		System.out.println(ans);
+        scn.close();
 	}
 
 	static int mindiff = Integer.MAX_VALUE;
