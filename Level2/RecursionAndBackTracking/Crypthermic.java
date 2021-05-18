@@ -2,7 +2,6 @@
 import java.util.*;
 
 /**
- * TODO 
  * https://leetcode.com/problems/verbal-arithmetic-puzzle/discuss/463953/Java-Fast-Backtracking-Clean-Code-O(n!)-~-300ms
  */
 public class Crypthermic {
