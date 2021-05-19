@@ -55,3 +55,5 @@ function proJectProcessor(projectUrl, projectJson, json) {
         fs.writeFileSync('data.json', JSON.stringify(json));
     }
 }
+
+module.exports = proJectProcessor;
