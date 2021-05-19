@@ -1,5 +1,6 @@
 const cheerio = require('cheerio');
 const request = require('request');
+const getProjects = require('./getProjects');
 
 var baseUrl = 'https://github.com';
 let topicUrl = '/topics';
@@ -16,11 +17,14 @@ function getTopics(err, res, html) {
         // console.log(topics.length);
 
         for (let i = 0; i < topics.length; i++) {
+
             let topicName = ch(topics[i]).find('p.lh-condensed')
                 .text()
                 .trim();
-            let topicLink = baseUrl + topicUrl + ch(topics[i]).attr('href');
-            console.log(topicName, topicLink);
+            let topicLink = baseUrl + ch(topics[i]).attr('href');
+
+            getProjects(topicName, topicLink);
+            // console.log(topicName, topicLink);
         }
     }
 }
