@@ -24,7 +24,6 @@ function getProjects(topicName, topicUrl) {
                 let repoName = ch(repos[i]).text().trim();
                 let repoLink = baseUrl + ch(repos[i]).attr('href');
                 // console.log(repoName, repoLink);
-
                 addToJson(topicName, repoName);
             }
             // console.log('------------------------------------------------------------------');
