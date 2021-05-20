@@ -1,4 +1,4 @@
-package Pep.ArrayList;
+package ArrayList;
 
 import java.util.*;
 
@@ -7,17 +7,12 @@ public class RemovePrime {
 	public static void solution(ArrayList<Integer> ls){
 		List<Integer> primes = new ArrayList<>();
 
-        
-    
         for(int i : ls){
             if (!isPrime_(i)){
                 primes.add(i);
             }
         }
-        
         System.out.println(primes.toString());
-		
-		
 	}
 	
 	public static boolean isPrime_(int n) {

@@ -1,4 +1,4 @@
-package Pep.ArrayList;
+package ArrayList;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ public class StringCompression {
 
         while(i < str.length()) {
 
-            int ch = str.charAt(i++);
+            char ch = str.charAt(i++);
             sb.append(ch);
 
             while(i < str.length()) {

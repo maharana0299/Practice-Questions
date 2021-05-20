@@ -1,4 +1,4 @@
-package Pep.Arrays;
+package Arrays;
 
 
 import java.util.Scanner;
@@ -34,7 +34,9 @@ public class SumofTwoArr {
         int j = a2.length-1;
         int k = arr.length-1;
         int c = 0; // initially carry is zero 
+        
         while(k >= 0){
+            
             arr[k] = c;
 
             if(i >= 0)

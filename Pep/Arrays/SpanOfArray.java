@@ -1,4 +1,4 @@
-package Pep.Arrays;
+package Arrays;
 
 
 import java.util.Scanner;

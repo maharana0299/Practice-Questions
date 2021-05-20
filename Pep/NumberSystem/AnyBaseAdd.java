@@ -25,6 +25,7 @@ public class AnyBaseAdd {
         int p = 1;
         
         while(n1 > 0 || n2 > 0 || c > 0){
+            
             int d1 = n1 % 10;
             int d2 = n2 % 10;
             n1 /= 10;
