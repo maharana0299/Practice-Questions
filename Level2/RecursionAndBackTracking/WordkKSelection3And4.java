@@ -34,6 +34,8 @@ public class WordkKSelection3And4 {
       }
       
       // placed spots on level
+      // each spot has option to select last selected charactrer if possible or to select next character
+      // this is an combination problem hence we are not exploring all the other options
       public static void combK(int ci, int ts, String str, HashMap<Character, Integer> map, String asf, int lc) {
           
           if(ci > ts) {
@@ -54,6 +56,8 @@ public class WordkKSelection3And4 {
           }
       }
 
+      // every item has several options 
+      // if it decides not to be a part of the selection then all of its equivalents are deleted from the set 
     public static void combk2(int ci, String word, HashSet<Character> set, int fs, int ts, Character[] spots, int lf) {
 
         if(ci == word.length()) {
