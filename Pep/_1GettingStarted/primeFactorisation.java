@@ -1,4 +1,4 @@
-package  GettingStarted;
+package  _1GettingStarted;
 import java.util.*;
 
 public class primeFactorisation{
