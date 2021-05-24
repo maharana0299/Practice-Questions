@@ -1,5 +1,7 @@
 {
     "java.project.sourcePaths": [
         "RecursionAndBackTracking",
+        "Leetcode",
+        "BitsManipulation"
     ]
 }
