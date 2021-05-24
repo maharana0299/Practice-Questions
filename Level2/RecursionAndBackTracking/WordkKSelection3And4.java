@@ -27,9 +27,6 @@ public class WordkKSelection3And4 {
             unique.put(ch, unique.get(ch) + 1);
           }
         }
-        
-        combk2(0, str, set, 0, k, new Character[k], -1);
-        System.out.println("______________________________________");
         combK(1,k,ustr,unique,"",0);
       }
       
@@ -56,35 +53,43 @@ public class WordkKSelection3And4 {
           }
       }
 
-      // every item has several options 
-      // if it decides not to be a part of the selection then all of its equivalents are deleted from the set 
-    public static void combk2(int ci, String word, HashSet<Character> set, int fs, int ts, Character[] spots, int lf) {
+}
 
-        if(ci == word.length()) {
-
-            if(ts == fs) {
-                for(char ch : spots){
-                    System.out.print(ch);
-                }
-                System.out.println();
-            }
-            return;
+class WorkKSel3 {
+    
+    public static void generateSelection(int cs, int ts, String ustr, HashMap<Character, Integer> unique, int ls, String asf) {
+        if (cs > ts) {
+          System.out.println(asf);
+          return;
         }
-        char ch = word.charAt(ci);
-
-        if(set.contains(ch)) {
-            for(int i = lf+1; i < ts; i++) {
-                spots[i] = ch;
-                combk2(ci+1, word, set, fs+1, ts, spots, i);
-                spots[i] = null;
-            }
+    
+        for (int i = ls; i < ustr.length(); i++) {
+          char ch = ustr.charAt(i);
+    
+          if (unique.get(ch) > 0) {
+            unique.put(ch, unique.get(ch) - 1);
+            generateSelection(cs + 1, ts, ustr, unique, i, asf + ch);
+            unique.put(ch, unique.get(ch) + 1);
+          }
         }
-
-        if(set.contains(ch)){
-            set.remove(ch);
+      }
+    
+      public static void main(String[] args) throws Exception {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String str = br.readLine();
+        int k = Integer.parseInt(br.readLine());
+    
+        HashMap<Character, Integer> unique = new HashMap<>();
+        String ustr = "";
+        for (char ch : str.toCharArray()) {
+          if (unique.containsKey(ch) == false) {
+            unique.put(ch, 1);
+            ustr += ch;
+          } else {
+            unique.put(ch, unique.get(ch) + 1);
+          }
         }
-        combk2(ci+1, word, set, fs, ts, spots, lf);
-
-        set.add(ch);
-    }
+    
+        generateSelection(1, k, ustr, unique, 0, "");
+      }
 }
