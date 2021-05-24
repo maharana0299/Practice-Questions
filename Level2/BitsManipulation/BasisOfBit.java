@@ -13,12 +13,12 @@ public class BasisOfBit {
 
         //creating mask 
         int onmask = (1 << i);
-        int offmask = ~(1 << j);
+        int offmask = (1 << j);
         int tmask = (1 << k);
         int cmask = ~(1 << m);
-        scn.close();
+
         System.out.println(n | onmask);
-        System.out.println(n & offmask);
+        System.out.println(n & (~offmask));
         System.out.println(n ^ tmask);
         System.out.println((n & cmask) == 0 ? false : true); // if 0 -> print false : if 1 print true
     }
