@@ -1,8 +1,7 @@
 let fs = require('fs');
+
 // promise is an object 
-
 let p = new Promise(function executor(resolve, reject) {
-
     // if task is sucessful then call resolve
     fs.readFile('f.txt', function(err, data) {
             if (err) reject(err);
