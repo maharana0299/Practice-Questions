@@ -12,7 +12,6 @@ p.then(function(a) {
     console.log(a);
 });
 
-
 // runs parallel
 setTimeout(() => {
     p.then(function(a) {
