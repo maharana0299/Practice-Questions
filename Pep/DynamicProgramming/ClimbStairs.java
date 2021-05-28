@@ -15,7 +15,6 @@ public class ClimbStairs {
         System.out.println(tabclim(n));
     }
     
-
     // using tabulation
     static int tabclim(int n) {
         
