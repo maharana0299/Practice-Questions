@@ -2,6 +2,7 @@
     "java.project.sourcePaths": [
         "RecursionAndBackTracking",
         "Leetcode",
-        "BitsManipulation"
+        "BitsManipulation",
+        "DynamicProgramming"
     ]
 }
