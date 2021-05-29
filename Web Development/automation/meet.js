@@ -6,7 +6,6 @@ puppeteer.use(StealthPlugin())
 
 function start({ metting_id }) {
 
-    let pages;
 
     // puppeteer usage as normal
     puppeteer.launch({
@@ -80,27 +79,23 @@ function start({ metting_id }) {
                 await page.keyboard.press('Tab');
                 await page.waitForTimeout();
             }
+            await page.keyboard.press('Enter');
+            await navigationPromise;
 
-            pages = page;
-            // await
-            // await;
-            return Promise.all([page.keyboard.press('Enter'), navigationPromise]);
-        })
-        .then(() => {
             // open chat section and send a message to all
-            await pages.waitForTimeout();
+            await page.waitForTimeout();
 
             // await page.waitForSelector('div[aria-hidden="true"]');
             for (i = 1; i <= 11; i++) {
-                await pages.keyboard.press('Tab');
-                await pages.waitForTimeout();
+                await page.keyboard.press('Tab');
+                await page.waitForTimeout();
             }
-            await pages.keyboard.press('Enter');
-            await pages.waitForSelector('a[href]');
+            await page.keyboard.press('Enter');
+            await page.waitForSelector('a[href]');
             // console.log("Got!!");
-            await pages.waitForTimeout();
-            await pages.click('a[href]');
-            await pages.waitForNavigation();
+            await page.waitForTimeout();
+            await page.click('a[href]');
+            await page.waitForNavigation();
             // await browser.close();
         })
         .catch((err) => {
