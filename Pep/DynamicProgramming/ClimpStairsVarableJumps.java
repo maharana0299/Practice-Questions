@@ -29,7 +29,7 @@ public class ClimpStairsVarableJumps {
         
         int n = jumps.length;
         // making a dp to store the jumps 
-        // dp[i] stores the way by which we can move from ith pos to the first position
+        // dp[i] stores the way by which we can move from ith pos to the last position
         int[] dp = new int[n+1];
         
         // base case : if we are at nth position, then only one way is possible, 
