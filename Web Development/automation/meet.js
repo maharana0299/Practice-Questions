@@ -79,24 +79,37 @@ function start({ metting_id }) {
                 await page.keyboard.press('Tab');
                 await page.waitForTimeout();
             }
+
             await page.keyboard.press('Enter');
             await navigationPromise;
 
             // open chat section and send a message to all
-            await page.waitForTimeout();
+            await page.waitForTimeout(3000);
 
-            // await page.waitForSelector('div[aria-hidden="true"]');
+            // waiting until join the metting
+            await page.waitForSelector('[data-self-name="You"]');
+
+            // opening chat
             for (i = 1; i <= 11; i++) {
                 await page.keyboard.press('Tab');
-                await page.waitForTimeout();
+                await page.waitForTimeout(400);
             }
+
             await page.keyboard.press('Enter');
+
+            // waiting for a link
             await page.waitForSelector('a[href]');
             // console.log("Got!!");
-            await page.waitForTimeout();
+            await page.waitForTimeout(1000);
             await page.click('a[href]');
-            await page.waitForNavigation();
+            // await page.waitForNavigation();
             // await browser.close();
+            console.log(page.url());
+            var page2 = await browser.targets()[browser.targets().length - 1].page();
+            console.log(page2.url());
+            // npage.waitForNavigation();
+            // console.log(napge);
+            // console.log(pages.length)
         })
         .catch((err) => {
             console.log(err);
