@@ -1,4 +1,4 @@
-class Solution {
+class DungeonProblem {
     
     public int calculateMinimumHP(int[][] dungeon) {
 
