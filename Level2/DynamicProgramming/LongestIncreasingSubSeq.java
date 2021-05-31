@@ -33,7 +33,7 @@ public class LongestIncreasingSubSeq {
             for(int j = 0; j < i; j++) {
                 // if less then it can definetly form a subsequence with our i 
                 // so if max is less than dp[j], ie. lcs including j till j
-                if(arr[j] < arr[i]) {
+                if(arr[j] <= arr[i]) {
                     if(dp[j] > max) {
                         max = dp[j]; // longest subsquence till j 
                     }
