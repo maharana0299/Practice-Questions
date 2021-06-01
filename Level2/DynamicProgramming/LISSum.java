@@ -3,7 +3,7 @@ import java.util.Scanner;
 /**
  * LongestIncreasingSubSequenceSum
  */
-public class LongestIncreasingSubSequenceSum {
+public class LISSum {
 
     public static void main(String[] args) throws Exception {
 

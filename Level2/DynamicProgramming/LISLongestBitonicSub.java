@@ -2,7 +2,7 @@ import java.util.*;
 
 // a bitonic is a subsequence which first increase then decreases
 // eg:  3 5 6 7 7 8 3 2 1 -> this is a bitonic 
-public class LongestBitonicSub {
+public class LISLongestBitonicSub {
 
     public static void main(String[] args) throws Exception {
 

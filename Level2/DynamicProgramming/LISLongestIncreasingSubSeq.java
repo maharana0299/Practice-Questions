@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class LongestIncreasingSubSeq {
+public class LISLongestIncreasingSubSeq {
 
     public static void main(String[] args) throws Exception {
         
