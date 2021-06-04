@@ -1,4 +1,4 @@
-#include<bits/stdc++.h>
+#include<iostream.h>
 # define pb push_back 
 #define pii pair<int, int>
 #define mp make_pair
@@ -19,3 +19,6 @@ int main()
         string ans = (k >= dist && (k - dist) % 2 == 0 ? "YeS" : "nO");
         cout << ans << endl;            
     }
+
+    return 0;
+}

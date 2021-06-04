@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class JosephusSpecial {
 
     public static int solution(int n) {
