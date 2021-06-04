@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
- 
 #define ll long long
 #define sz(x) ((int) (x).size())
 #define all(x) (x).begin(), (x).end()
@@ -30,4 +29,5 @@ int main() {
     int te;
     cin >> te;
     while(te--) solve();
+    
 }
