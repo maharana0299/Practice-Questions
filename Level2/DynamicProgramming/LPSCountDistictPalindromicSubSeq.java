@@ -49,7 +49,8 @@ public class LPSCountDistictPalindromicSubSeq {
         }
         return prev;
     }
-	public static int solution(String str) {
+	
+    public static int countDistinctPalindromicSubsequence(String str) {
 		
 		int n = str.length();
 		int prev[] = createPrevArray(str);
@@ -110,6 +111,6 @@ public class LPSCountDistictPalindromicSubSeq {
 	public static void main(String[] args) {
 		Scanner scn = new Scanner(System.in);
 		String str = scn.next();
-		System.out.println(solution(str));
+		System.out.println(countDistinctPalindromicSubsequence(str));
 	}
 }
