@@ -1,6 +1,7 @@
 {
     "java.project.sourcePaths": [
         "Level2/BitsManipulation",
-        "Level1/Linked List"
+        "Level1/Linked List",
+        "Level1/tree"
     ]
 }
