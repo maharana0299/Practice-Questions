@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MatrixChainMultiplication",
+            "request": "launch",
+            "mainClass": "MatrixChainMultiplication",
+            "projectName": "Level2_3735da8d"
+        },
+        {
+            "type": "java",
             "name": "Launch CountPalindromicSubstrings",
             "request": "launch",
             "mainClass": "CountPalindromicSubstrings",
